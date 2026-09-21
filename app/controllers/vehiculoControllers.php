@@ -6,12 +6,15 @@ class vehiculoControllers
 {
     public function index()
     {
-        $vehiculo = new vehiculo();
+        $vehiculoModel = new Vehiculo();
 
         try {
-            $vehiculos = $vehiculo->getAll();
+            $vehiculos = $vehiculoModel->getAll();
         } catch (PDOException) {
             echo "No se encontraron vehiculos";
         }
+
+        require_once __DIR__ . "/../views/vehiculo/index.php";
     }
 }
+?>

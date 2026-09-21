@@ -1,7 +1,7 @@
 <h1>Listado De vehiculo</h1>
 
 
-<?php if (!empty($vehiculo)) { ?>
+<?php if (!empty($vehiculos)) { ?>
 <table border="1">
     <tr>
         <th>id</th>
@@ -11,7 +11,7 @@
         <th>color</th>
 
     </tr>
-    <?php foreach ($vehiculo as $vehiculo): ?>
+    <?php foreach ($vehiculos as $vehiculo): ?>
       <tr>
 
         <td><?= $vehiculo["id"]?> </td>

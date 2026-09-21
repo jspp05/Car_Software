@@ -2,7 +2,7 @@
 
 require_once __DIR__ ."/../../config/Database.php";
 
-class vehiculo{
+class Vehiculo{
     private $connection;
 
     public function __construct()
