@@ -13,6 +13,8 @@ $uri = $_SERVER['REQUEST_URI'];
 <a href="/usuario">Usuarios</a>
 <a href="/ordendetrabajo">Órdenes de trabajo</a>
 <a href="/crear/vehiculo">Crear Vehículo</a>
+<a href="/crear/usuario">Crear Usuario</a>
+<a href="/crear/ordendetrabajo">Crear Orden de Trabajo</a>
 
 <?php
 if ($method === 'GET' && $uri === '/vehiculo'){
@@ -28,4 +30,26 @@ if ($method === 'GET' && $uri === '/vehiculo'){
 } elseif($method === 'GET' && $uri === '/crear/vehiculo'){
     $VehiculoController = new vehiculoControllers();
     $VehiculoController->crear();
+
+} elseif($method === 'POST' && $uri === '/vehiculo'){
+    $VehiculoController = new vehiculoControllers();
+    $VehiculoController->guardar();
+
+} elseif($method === 'GET' && $uri === '/crear/usuario'){
+    $UsuarioController = new usuarioControllers();
+    $UsuarioController->crear();
+
+} elseif($method === 'POST' && $uri === '/usuario'){
+    $UsuarioController = new usuarioControllers();
+    $UsuarioController->guardar();
+} elseif($method === 'GET' && $uri === '/crear/usuario'){
+    $UsuarioController = new usuarioControllers();
+    $UsuarioController->crear();
+
+} elseif($method === 'GET' && $uri === '/crear/ordendetrabajo'){
+    $OrdendetrabajoController = new ordendetrabajoControllers();
+    $OrdendetrabajoController->crear();
+} elseif($method === 'POST' && $uri === '/ordendetrabajo'){
+    $OrdendetrabajoController = new ordendetrabajoControllers();
+    $OrdendetrabajoController->guardar();
 }

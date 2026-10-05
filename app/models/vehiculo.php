@@ -19,4 +19,21 @@ class Vehiculo{
         return $consulta->fetchAll(PDO::FETCH_ASSOC);
 
     }
+
+    public function guardar($placa, $marca, $modelo, $color)
+    {
+        try {
+        $sql = 
+        "INSERT INTO vehiculo (placa, marca, modelo, color) VALUES (:placa, :marca, :modelo, :color)";
+        $consulta = $this->connection->prepare($sql);
+        $consulta->bindParam(":placa", $placa);
+        $consulta->bindParam(":marca", $marca);
+        $consulta->bindParam(":modelo", $modelo);
+        $consulta->bindParam(":color", $color);
+
+        return $consulta->execute();
+        } catch (PDOException $e) {
+            echo "Error al guardar el vehiculo:";
+        }
+    }
 }

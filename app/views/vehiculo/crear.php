@@ -1,8 +1,6 @@
 <form action="/vehiculo" method="POST">
 
-    <label>id</label>
-    <input type="number" name="id">
-
+   
     <label>Placa</label>
     <input type="text" name="placa">
     

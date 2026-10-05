@@ -19,4 +19,23 @@ class Usuario{
         return $consulta->fetchAll(PDO::FETCH_ASSOC);
 
     }
+
+    public function guardar($TipoDeDocumento, $numeroDocumento, $nombreUsuario, $correo, $telefono, $direccion)
+    {
+        try {
+        $sql = 
+        "INSERT INTO usuario (TipoDeDocumento, numeroDocumento, nombreUsuario, correo, telefono, direccion) VALUES (:TipoDeDocumento, :numeroDocumento, :nombreUsuario, :correo, :telefono, :direccion)";
+        $consulta = $this->connection->prepare($sql);
+        $consulta->bindParam(":TipoDeDocumento", $TipoDeDocumento);
+        $consulta->bindParam(":numeroDocumento", $numeroDocumento);
+        $consulta->bindParam(":nombreUsuario", $nombreUsuario);
+        $consulta->bindParam(":correo", $correo);
+        $consulta->bindParam(":telefono", $telefono);
+        $consulta->bindParam(":direccion", $direccion);
+
+        return $consulta->execute();
+        } catch (PDOException $e) {
+            echo "Error al guardar el usuario: " . $e->getMessage();
+        }
+    }
 }
