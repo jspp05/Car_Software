@@ -11,6 +11,7 @@
         <th>Teléfono</th>
         <th>Correo</th>
         <th>Dirección</th>
+        <th>Acciones</th>
     </tr>
     <?php foreach ($usuarios as $usuario): ?>
       <tr>
@@ -22,6 +23,12 @@
         <td><?= $usuario["telefono"]?> </td>
         <td><?= $usuario["correo"]?> </td>
         <td><?= $usuario["direccion"]?> </td>
+        <td> <a href="/usuario/editar/<?= $usuario["id"] ?>">Editar</a> </td>
+        <td>
+            <form method="POST" action="/usuario/eliminar">
+                <input type="hidden" name="id" value="<?= $usuario["id"] ?>">
+                <button type="submit">Eliminar</button>
+            </form>
       </tr>
     <?php endforeach; ?>
 </table>

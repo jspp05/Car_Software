@@ -38,4 +38,11 @@ class Usuario{
             echo "Error al guardar el usuario: " . $e->getMessage();
         }
     }
+    public function eliminar($id)
+    {
+        $sql = "DELETE FROM usuario WHERE id = :id";
+        $consulta = $this->connection->prepare($sql);
+        $consulta->bindParam(":id", $id, PDO::PARAM_INT);
+        return $consulta->execute();
+    }
 }

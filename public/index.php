@@ -6,6 +6,7 @@ require_once __DIR__ . "/../app/controllers/ordendetrabajoControllers.php";
 
 $method = $_SERVER['REQUEST_METHOD'];
 $uri = $_SERVER['REQUEST_URI'];
+$ruta = parse_url($uri, PHP_URL_PATH);
 
 ?>
 
@@ -52,4 +53,11 @@ if ($method === 'GET' && $uri === '/vehiculo'){
 } elseif($method === 'POST' && $uri === '/ordendetrabajo'){
     $OrdendetrabajoController = new ordendetrabajoControllers();
     $OrdendetrabajoController->guardar();
+} elseif ($method === 'GET' && $ruta === '/usuario/editar') {
+    $usuarioController = new usuarioControllers();
+    $usuarioController->editar();
+
+} elseif ($method === 'POST' && $ruta === '/usuario/eliminar') {
+    $usuarioController = new usuarioControllers();
+    $usuarioController->eliminar();
 }
