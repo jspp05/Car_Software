@@ -12,8 +12,15 @@ $producto=[
 $json1=file_get_contents(__DIR__ . "/productos.json");
 $productos1 = json_decode($json1,true);
 
-echo "<pre>";
-print_r($productos1);
-echo "/<pre>";
+echo "<h2>Todos los productos</h2>";
+foreach ($productos1 as $producto) {
+    echo $producto['nombre'] . " - $" . number_format($producto['precio'], 0, ',', '.') . "<br>";
+}
 
+echo "<h2>Productos con precio superior a $100.000</h2>";
+foreach ($productos1 as $producto) {
+    if ($producto['precio'] > 100000) {
+        echo $producto['nombre'] . " - $" . number_format($producto['precio'], 0, ',', '.') . "<br>";
+    }
+}
 ?>
